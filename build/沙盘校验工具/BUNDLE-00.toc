@@ -1,0 +1,1 @@
+([('沙盘校验工具', '/Users/linsheng/Workbuddy/Claw/dist/沙盘校验工具', 'EXECUTABLE')],)
