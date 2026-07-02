@@ -12,9 +12,11 @@ jobs:
         os: [windows-latest, macos-latest]
         include:
           - os: windows-latest
+            flags: "--onefile --windowed"
             ext: .exe
             asset_name: 沙盘校验工具_windows
           - os: macos-latest
+            flags: "--onefile --console"
             ext: ''
             asset_name: 沙盘校验工具_macos
     
@@ -31,7 +33,7 @@ jobs:
         run: pip install openpyxl pyinstaller
       
       - name: Build executable
-        run: pyinstaller --onefile --windowed --name "沙盘校验工具" sandbox_validator_gui.py
+        run: pyinstaller ${{ matrix.flags }} --name "沙盘校验工具" sandbox_validator_gui.py
       
       - name: Upload artifact
         uses: actions/upload-artifact@v4
