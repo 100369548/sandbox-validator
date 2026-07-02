@@ -303,6 +303,11 @@ func validateChan(name string, val interface{}, req bool) *Err {
 }
 
 func validateStoreRow(row []string, ref *RefData, rowNum int) []Err {
+	// 闭店状态直接返回空（完全免检）
+	if 12 < len(row) && row[12] == "闭店" {
+		return nil
+	}
+
 	var errs []Err
 
 	for _, f := range storeFields {
