@@ -456,7 +456,7 @@ class SandboxValidatorGUI:
         ttk.Button(top_frame, text='🗑️ 清空', command=self.clear_files, width=10).pack(side=tk.LEFT, padx=5)
         
         self.start_btn = ttk.Button(top_frame, text='▶ 开始校验', command=self.start_validation, width=15)
-        self.start_button.pack(side=tk.LEFT, padx=5)
+        self.start_btn.pack(side=tk.LEFT, padx=5)
         
         ttk.Button(top_frame, text='💾 导出报告', command=self.export_report, width=12).pack(side=tk.RIGHT, padx=5)
         
@@ -547,7 +547,7 @@ class SandboxValidatorGUI:
             return
         
         self.running = True
-        self.start_button.config(state=tk.DISABLED)
+        self.start_btn.config(state=tk.DISABLED)
         self.tree.delete(*self.tree.get_children())
         self.results.clear()
         
@@ -596,7 +596,7 @@ class SandboxValidatorGUI:
         self._set_progress(f'完成: {total} 个文件, 共 {len(all_errors)} 条错误', 100)
         self.status_bar.config(text=f'  完成 | 文件: {total} | 错误: {len(all_errors)}')
         self.running = False
-        self.start_button.config(state=tk.NORMAL)
+        self.start_btn.config(state=tk.NORMAL)
         
         if total == 1 and all_errors == 0:
             messagebox.showinfo('完成', '校验通过！所有数据正确。')
